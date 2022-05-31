@@ -170,7 +170,7 @@ cd myproject
 
 mv file1 /copiedpath/file1
 
-eg : mv file1 /home/ec2-user/mynewfiles/file1
+eg : mv file1 /home/ec2-user/mynewfiles
 
 files will be not copied but moved to new directory or location
 
