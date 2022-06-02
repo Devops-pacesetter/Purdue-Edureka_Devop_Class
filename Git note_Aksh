@@ -1,0 +1,227 @@
+Create a folder -> go inside the folder -> right click and open git bash
+
+1) git init  -> start your git repository
+
+2) git config --global user.name "akshat"    (only once it is required)
+
+3) git config --global user.email "akshu20791@gmail.com"    (only once it is required)
+
+4) git config --list (to check global configuration)
+
+5) touch file1   (create a empty file in the folder)
+
+6) git status   (you will see that the file is there is red color and msg coming that it is not ttracked)
+
+7) git add .  (put all the files in the staging area)  (to put particular file in staging area  -> git add <<filename>> )
+
+8) git status   (now the file is in staging area and waiting to be commited)
+
+9) cat >> file1
+hello world
+
+press ctrl + D to exit
+
+10) git status (you will see modified file1 )
+
+11) git add . (to put the file in staging area) 
+
+12) git commit -m "my first commit"      (putting the files from the staging area to the local repo) 
+
+###################SKIP STAGING AREA #############################
+
+13) touch testfile
+
+14) git add testfile
+
+15) git status
+
+16) cat >> testfile
+hello world
+
+press ctrl + D to exit
+
+17) git status   (you will see that testfile is modified)
+
+18) git commit -a -m "second commit learning skip staging area" 
+
+19) git status  (you will see that modified file is now gone and the modified test file has skipped staging area and moved to the local repo)
+
+##############################################################################
+
+####IF YOU WANT THE CHANGES YOU HAVE MADE IN THE FILE ################
+
+20) touch file3
+
+21) cat >> file3
+hello world
+
+ctrl + D to exit
+
+22) git add .  
+
+23) cat >> file3
+edureka 
+
+ctrl + D 
+
+24) git diff     (difference between your previous file and modified file. If you want to know exactly what you changed but not which files were changes)
+
+(you will see that edureka is added up ) 
+
+#######################################################################################
+
+
+###########REMOVING THE FILES IN GIT ################################
+
+
+25) touch file6
+
+
+26) git add file6
+
+27) you can delete the file6 from folder  or (rm -f filename) 
+
+28) git status  (you will see that file 6 is deleted)
+
+29) git add .   (this will update my staging area)
+
+30) git status   ( file6 is now deleted) 
+
+
+################################################################################
+
+########### UNSTAGE A FILE  #############################
+
+
+31) touch file10
+
+32) git add file10
+
+33) git status
+
+34) git rm --cached file10   (this will unstage your file10  - first method)
+
+35) git status
+
+36) git add file10
+
+37) git restore --staged file10   (this will unstage your file10 - second method)
+
+38) git status
+
+#######################################################################################
+
+################# FINDING THE COMMIT (TO SEE ALL THE COMMITS DONE ) ################################
+
+
+39) git commit -m "fifth commit"
+
+40) git log   (complete list of commit (versions) which you have created)
+
+41) git log --oneline (it will give you the brief of the commit you have created)
+
+42) git log --graph --all  (it will give you the commits as a graph (generally we use it in branching))
+
+43) git log --oneline --graph --all  (it will give you commit as a graph (only commit messages and graph))
+
+################################################################
+
+##################################### ALIAS ################################
+
+# lets say i am frequently using git status but using it again is taking some . now rather then that i will set an alias for git status ...where in 
+if i type git akshat in that case also git status will be exectuted
+
+
+44) git config --global alias.akshat status    (it will set the alias akshat where it you type git akshat then it will work same as git status)
+
+45) git akshat   (it will give us the status of the file)
+
+46) git config --global --unset alias.akshat   (it will unset the alias akshat)
+
+
+47) git config --get-regexp alias    (use to list alias) 
+
+
+
+############################################################################################
+
+
+#################  WORKING WITH GITHUB.COM #######################################################
+
+go to github.com 
+
+if you are new to github.com signup otherwise signin
+
+signup -> put your email id , password and username and signup 
+
+now you will enter the homapage of github.com
+
+
+#####################################################################################################
+
+
+################## CONNECT OUR LOCAL REPOSITORY WITH GITHUB.COM REPO ##########################
+
+48) Create a blank public repository in github
+
+49) git log --oneline    (shows me the commit messages)
+
+50) git remote add origin -u <<central git url>>  ( it will connect your git with the git hub repo url)
+
+51) git push -u origin master  (push the code into the git hub repo from my git repo )
+
+(try it once or twice if you are still getting the error then search windows credentials and delete the git credentials from there)
+
+52) now the pop will come which will ask for token
+
+go to github.com -> Click on the top right corner -> settings -> developer settings -> generate the new token  (select repo (tick) ) 
+
+copy paste the token in the pop up which comes up 
+
+
+##############################################################################################################
+
+
+############################################ IGNORING FILES ######################
+
+
+#you are working on a project. and you want to ignore a file(user.log) which gets updated regularly. 
+for that create .gitignore file and put the user.log in that particular file
+
+
+53) touch user.log
+
+54) cat > .gitignore  (press enter)
+user.log      (press enter)
+
+press ctrl + D to exit
+
+55) cat .gitignore 
+
+56) git status 
+
+(you will not see user.log because it has stopped tracking as we have put it in .gitignore)
+
+
+57) git add .
+
+58) git commit -m "gitignore file created"
+
+
+################### IF WE WANT TO IGNORE THE FILES WHICH ARE GETTING CREATED REGULARLY ######################
+
+
+#lets say for example if there users log files are created regularly....akshat.log , rahul.log , james.log , aman.log , sunday.log , ramakrishna.log
+...................................
+
+59) touch akshat.log aman.log rahul.log raghav.log anusha.log anamika.log yash.log 
+
+60) git status 
+
+61) go to .gitignore file and put *.log 
+
+62) git status   (you will see that all the files created in sno 59 is ignored now) 
+
+
+
+https://github.com/akshu20791/M1C1.git
